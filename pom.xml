@@ -28,6 +28,7 @@
             </plugin>      
                         
             <!--
+             Pom.xml alterado
              Plugin para computar cobertura de código: 
              computar o percentual do código que está sendo coberto pelos 
              testes unitários.
