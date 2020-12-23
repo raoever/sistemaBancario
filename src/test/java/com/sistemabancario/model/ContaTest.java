@@ -6,10 +6,30 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class ContaTest {
     
-//    @Test
-//    void testAddMovimentacao() {
-//        //TODO: Você precisa implementar este teste
-//    }
+    @Test
+    void testAddMovimentacaoCredito() {
+        final Conta instance = new Conta();
+        Movimentacao mov = new Movimentacao(instance);
+        mov.setConfirmada(true);
+        mov.setTipo('C');
+        final double esperado = 100.5;
+        mov.setValor(esperado);
+        instance.addMovimentacao(mov);
+        assertEquals(esperado, instance.getSaldoTotal());
+    }
+    
+    @Test
+    void testAddMovimentacaoDebito() {
+        final Conta instance = new Conta();
+        Movimentacao mov = new Movimentacao(instance);
+        mov.setConfirmada(true);
+        mov.setTipo('D');
+        final double valor = 100.5;
+        final double esperado = -valor;
+        mov.setValor(valor);
+        instance.addMovimentacao(mov);
+        assertEquals(esperado, instance.getSaldoTotal());
+    }
     
     @Test
     void testSetNumeroValido(){
