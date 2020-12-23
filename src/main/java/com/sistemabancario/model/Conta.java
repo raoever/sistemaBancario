@@ -1,5 +1,6 @@
 package com.sistemabancario.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -15,7 +16,7 @@ import java.util.List;
 public class Conta implements Cadastro {
 
     private long id;
-
+    
     /**
      * Número que identifica unicamente uma conta em uma determinada agência,
      * devendo estar no formato 99999-9. Se o número não estiver no formato
@@ -60,7 +61,7 @@ public class Conta implements Cadastro {
      * conta usando qualquer um dos construtores, a lista de movimentações não é
      * nula, chamando o método {@link #getMovimentacoes()}. (R04)
      */
-    private List<Movimentacao> movimentacoes;
+    private List<Movimentacao> movimentacoes = new ArrayList<>();
 
     public Conta() {
         // TODO: Você precisa implementar este método
@@ -164,6 +165,9 @@ public class Conta implements Cadastro {
     }
 
     public void setNumero(String numero) {
+        if(!numero.matches("\\d{5}-\\d")){
+            throw new IllegalArgumentException("Número inválido. Deve estar no formato 99999-9.");
+        }
         this.numero = numero;
     }
 
@@ -192,6 +196,9 @@ public class Conta implements Cadastro {
     }
 
     public void setLimite(double limite) {
+        if(!especial && limite > 0){
+            throw new IllegalStateException("Somente contas especiais podem ter limite.");
+        }
         this.limite = limite;
     }
 }
