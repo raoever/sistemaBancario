@@ -15,7 +15,7 @@ public class ContaTest {
         final double esperado = 100.5;
         mov.setValor(esperado);
         instance.addMovimentacao(mov);
-        assertEquals(100, instance.getSaldoTotal());
+        assertEquals(esperado, instance.getSaldoTotal());
     }
     
     @Test
