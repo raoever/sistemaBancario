@@ -51,4 +51,4 @@ você deverá renomear as pastas para algo como (preferencialmente evitando acen
 `/home/usuario/meus-projetos/projeto-incrivel`.
 ====
 
-image::[relatorioRene.png]
+image::relatorioRene.png[]
